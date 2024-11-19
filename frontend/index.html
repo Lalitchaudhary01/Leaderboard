@@ -7,8 +7,18 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white flex">
+    <div class="w-64 bg-gray-800 p-4 hidden md:block">
+        <h2 class="text-2xl font-bold mb-4">Campaigns</h2>
+        <ul>
+            <li class="mb-2"><a href="#" class="text-white hover:text-blue-500">Summer 2022</a></li>
+            <li class="mb-2"><a href="#" class="text-white hover:text-blue-500">Winter 2022</a></li>
+            <li class="mb-2"><a href="#" class="text-white hover:text-blue-500">Spring 2022</a></li>
+        </ul>
+    </div>
+    <div class="flex-1">
     <div class="container mx-auto my-10 px-4">
+        
         <!-- Header -->
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-4xl font-bold text-white">TBPPP Leaderboard</h1>
@@ -79,6 +89,16 @@
             <p>Error loading data. Please try again later.</p>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="index.js">
+        function compare(a, b) {
+            if (a.totalSolved > b.totalSolved) {
+                return -1;
+            }
+            if (a.totalSolved < b.totalSolved) {
+                return 1;
+            }
+            return 0;
+        }
+    </script>
 </body>
 </html>
