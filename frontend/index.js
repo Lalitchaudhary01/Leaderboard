@@ -15,10 +15,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     //call the pinrow function in a row
     const pinnedRow = document.getElementById("pinned-row");
     pinRow(pinnedRow);
-    //how to click on the pinned row
+
     pinnedRow.addEventListener("click", () => {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 1);
     });
+    // Call the pinRow function for the row you want to pin, for example:
+    pinRow(leaderboardBody.rows[index]);
+    // create a function funtion for compare the row data
+    function compareRows(row1, row2) {
+      const columns = ['rank', 'rollNumber', 'name', 'section', 'totalSolved', 'easy', 'medium', 'hard'];
+      const differences = [];
+    
+      columns.forEach((column) => {
+        if (row1[column] !== row2[column]) {
+          differences.push({
+            column,
+            value1: row1[column],
+            value2: row2[column]
+          });
+        }
+      });
+    
+      return differences;
+    }
+
+    const compareStudents = (student1, student2) => {
 
     // Populate section filter dropdown
     const populateSectionFilter = () => {
